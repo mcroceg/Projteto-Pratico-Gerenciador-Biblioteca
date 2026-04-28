@@ -31,6 +31,7 @@ console.table(biblioteca);
 import { exibirBiblioteca } from './consulta-exibição.js';
 import { adicionarLivro, removerLivro } from './cadastro-remoção.js';
 import { buscarPorTitulo, listarPorAutor } from './consulta-exibição.js';
+import { marcarComoLido, listarLidos, listarPendentes } from './consulta-exibição.js';
 
 // Executa as funções na ordem do exemplo
 exibirBiblioteca(biblioteca);
@@ -71,3 +72,21 @@ buscarPorTitulo(biblioteca, "Code");
 
 // listar por autor (exemplo: "Kentaro Miura")
 listarPorAutor(biblioteca, "Kentaro Miura");
+
+// Pegamos um livro específico para marcar como lido
+if (biblioteca[1]) {
+    marcarComoLido(biblioteca[1], 5);
+} else {
+    console.log("\n Livro não encontrado para marcar como lido.");
+}
+
+//  Tentativa com nota inválida
+if (biblioteca[1]) {
+    marcarComoLido(biblioteca[1], 10);
+} else {
+    console.log("\n Livro não encontrado para marcar como lido.");
+}
+
+//  Verificando os filtros
+listarLidos(biblioteca);
+listarPendentes(biblioteca);

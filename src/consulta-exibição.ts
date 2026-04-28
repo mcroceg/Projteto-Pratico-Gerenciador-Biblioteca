@@ -45,3 +45,28 @@ export function listarPorAutor(biblioteca: Livro[], autor: string): void {
         console.log("    Nenhum livro encontrado para este autor.");
     }
 }
+
+export function marcarComoLido(livro: Livro, nota: number): void {
+    // Validação conforme requisito (1 a 5)
+    if (nota >= 1 && nota <= 5) {
+        livro.lido = true;
+        livro.avaliacao = nota;
+        console.log(`\n O livro "${livro.titulo}" foi marcado como lido com nota ${nota}/5.`);
+    } else {
+        console.log(`\n Erro: A nota ${nota} é inválida. Use um valor de 1 a 5.`);
+    }
+}
+
+// Listar apenas os lidos
+export function listarLidos(biblioteca: Livro[]): void {
+    const lidos = biblioteca.filter(l => l.lido);
+    console.log("\n=== LIVROS LIDOS ===");
+    lidos.forEach(l => console.log(` ${l.titulo} - Nota: ${l.avaliacao}`));
+}
+
+// Listar apenas os pendentes
+export function listarPendentes(biblioteca: Livro[]): void {
+    const pendentes = biblioteca.filter(l => !l.lido);
+    console.log("\n=== LIVROS PENDENTES ===");
+    pendentes.forEach(l => console.log(`[ ] ${l.titulo}`));
+}
