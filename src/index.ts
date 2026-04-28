@@ -1,6 +1,40 @@
-const titulos: string[] = [ "O Hobit", "Clean Code", "1984", "Dom Casmurro", "O Nome do Vento"];
-const autores: string[] = [ "J.R.R. Tolkien", "Robert C. Martin", "George Orwell", "Machado de Assis", "Patrick Rothfuss"];
-const anos: number[] = [1937, 2008, 1949, 1899, 2007];
-const paginas: number[] = [310, 464, 328, 256, 662];
-const lidos: boolean[] = [true, false, true, false, true];
-const avaliacoes: number[] = [4.5, 5.0, 4.0, 3.5, 4.8]; // 0 se não lido, 1 a 5 se lido
+
+interface Livro {
+  titulo: string;
+  autor: string;
+  ano: number;
+  paginas: number;
+  lido: boolean;
+  avaliacao: number;
+}
+
+const livros: Livro[] = [
+  {
+    titulo: "O Hobit",
+    autor: "J.R.R. Tolkien",
+    ano: 1937,
+    paginas: 310,
+    lido: true,
+    avaliacao: 4.5,}
+,{
+    titulo: "Clean Code",
+    autor: "Robert C. Martin",
+    ano: 2008,
+    paginas: 464,
+    lido: false,
+    avaliacao: 0,},
+{
+    titulo: "1984",
+    autor: "George Orwell",
+    ano: 1949,
+    paginas: 328,
+    lido: true,
+    avaliacao: 4.0,},
+{
+    titulo: "Dom Casmurro",
+    autor: "Machado de Assis",
+    ano: 1899,
+    paginas: 256,
+    lido: false,
+    avaliacao: 0,},
+];
