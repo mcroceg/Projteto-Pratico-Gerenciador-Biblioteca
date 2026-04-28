@@ -32,6 +32,7 @@ import { exibirBiblioteca } from './consulta-exibição.js';
 import { adicionarLivro, removerLivro } from './cadastro-remoção.js';
 import { buscarPorTitulo, listarPorAutor } from './consulta-exibição.js';
 import { marcarComoLido, listarLidos, listarPendentes } from './consulta-exibição.js';
+import { exibirRelatorioEstatisticas } from './estatística.js';
 
 // Executa as funções na ordem do exemplo
 exibirBiblioteca(biblioteca);
@@ -90,3 +91,6 @@ if (biblioteca[1]) {
 //  Verificando os filtros
 listarLidos(biblioteca);
 listarPendentes(biblioteca);
+
+// Exibir relatório de estatísticas
+exibirRelatorioEstatisticas(biblioteca);
