@@ -27,74 +27,59 @@ export const biblioteca: Livro[] = [
 console.log("Biblioteca carregada com sucesso!");
 console.table(biblioteca);
 
-// importações para execução das funções
-import { exibirBiblioteca } from './consulta-exibição.js';
+// --- IMPORTAÇÕES ---
+import { exibirBiblioteca, buscarPorTitulo, listarPorAutor, listarLidos, listarPendentes, marcarComoLido } from './consulta-exibição.js';
 import { adicionarLivro, removerLivro } from './cadastro-remoção.js';
-import { buscarPorTitulo, listarPorAutor } from './consulta-exibição.js';
-import { marcarComoLido, listarLidos, listarPendentes } from './consulta-exibição.js';
 import { exibirRelatorioEstatisticas } from './estatística.js';
 import { exibirPorDecada } from './classificação.js';
 
-// Executa as funções na ordem do exemplo
-exibirBiblioteca(biblioteca);
 
-// criando 2 novos livros
-const livroA: Livro = {
-    titulo: "O Hobbit",
-    autor: "J.R.R. Tolkien",
-    ano: 1937,
-    classificacao: "Fantasia",
-    paginas: 310,
-    lido: false,
-    avaliacao: 4.8
-};
+async function demonstracaoFinal() {
+    console.log("\n" + "=".repeat(40));
+    console.log("   SISTEMA DE GERENCIAMENTO DE BIBLIOTECA   ");
+    console.log("=".repeat(40));
 
-const livroB: Livro = {
-    titulo: "Bleach Vol. 1",
-    autor: "Tite Kubo",
-    ano: 2001,
-    classificacao: "Manga",
-    paginas: 192,
-    lido: true,
-    avaliacao: 4.5
-};
+    // 1. Estado Inicial
+    exibirBiblioteca(biblioteca);
 
-// 2. Adicionar os livros e remover um livro existente
-adicionarLivro(biblioteca, livroA);
-adicionarLivro(biblioteca, livroB);
+    // 2. Cadastro de novos títulos (Validação Etapa 3)
+    console.log("\n CADASTRO");
+    const hobbit: Livro = { titulo: "O Hobbit", autor: "J.R.R. Tolkien", ano: 1937, classificacao: "Fantasia", paginas: 310, lido: false, avaliacao: 0 };
+    const rings: Livro = { titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", ano: 1954, classificacao: "Fantasia", paginas: 1200, lido: false, avaliacao: 0 };
+    
+    adicionarLivro(biblioteca, hobbit);
+    adicionarLivro(biblioteca, rings);
 
-// Remove 1 livro (por exemplo, o primeiro da lista, índice 0)
-removerLivro(biblioteca, 0);
+    // 3. Atualização de Status (Etapa 5)
+    console.log("\n MARCAR COMO LIDO");
+    const livroParaMarcar = biblioteca[biblioteca.length - 2];
 
-// Exibir novamente para validar
-exibirBiblioteca(biblioteca);
+    if (livroParaMarcar) {
+        marcarComoLido(livroParaMarcar, 5);
+    } else {
+        console.log(" Erro: Não há livros suficientes para marcar como lido.");
+    }
 
-// busca por título (exemplo: "Code")
-buscarPorTitulo(biblioteca, "Code");
+    // 4. Remoção (Etapa 3)
+    console.log("\n REMOÇÃO");
+    removerLivro(biblioteca, 0); // Removendo o primeiro livro original
 
-// listar por autor (exemplo: "Kentaro Miura")
-listarPorAutor(biblioteca, "Kentaro Miura");
+    // 5. Buscas e Filtros (Etapa 4 e 5)
+    console.log("\n" + "-".repeat(20));
+    buscarPorTitulo(biblioteca, "Clean");
+    listarPorAutor(biblioteca, "J.R.R. Tolkien");
+    
+    listarLidos(biblioteca);
+    listarPendentes(biblioteca);
 
-// Pegamos um livro específico para marcar como lido
-if (biblioteca[1]) {
-    marcarComoLido(biblioteca[1], 5);
-} else {
-    console.log("\n Livro não encontrado para marcar como lido.");
+    // 6. Relatórios Finais (Etapa 6 e 7)
+    console.log("\n" + "=".repeat(40));
+    exibirRelatorioEstatisticas(biblioteca);
+    exibirPorDecada(biblioteca);
+    console.log("\n" + "=".repeat(40));
+    console.log("       FIM DA DEMONSTRAÇÃO FINAL       ");
+    console.log("=".repeat(40));
 }
 
-//  Tentativa com nota inválida
-if (biblioteca[1]) {
-    marcarComoLido(biblioteca[1], 10);
-} else {
-    console.log("\n Livro não encontrado para marcar como lido.");
-}
-
-//  Verificando os filtros
-listarLidos(biblioteca);
-listarPendentes(biblioteca);
-
-// Exibir relatório de estatísticas
-exibirRelatorioEstatisticas(biblioteca);
-
-// Exibir classificação por década
-exibirPorDecada(biblioteca);
+// Executar a demo
+demonstracaoFinal();
