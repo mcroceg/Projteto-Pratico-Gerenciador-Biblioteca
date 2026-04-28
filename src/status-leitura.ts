@@ -1,0 +1,1 @@
+import { biblioteca, type Livro } from './index.js';
