@@ -1,0 +1,26 @@
+{
+  "name": "projteto-pratico-gerenciador-biblioteca",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcroceg/Projteto-Pratico-Gerenciador-Biblioteca.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mcroceg/Projteto-Pratico-Gerenciador-Biblioteca/issues"
+  },
+  "homepage": "https://github.com/mcroceg/Projteto-Pratico-Gerenciador-Biblioteca#readme",
+  "dependencies": {
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  }
+}
