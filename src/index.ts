@@ -29,7 +29,38 @@ console.table(biblioteca);
 
 // importações para execução das funções
 import { exibirBiblioteca } from './consulta-exibição.js';
-
+import { adicionarLivro, removerLivro } from './cadastro-remoção.js';
 
 // Executa as funções na ordem do exemplo
+exibirBiblioteca(biblioteca);
+
+// criando 2 novos livros
+const livroA: Livro = {
+    titulo: "O Hobbit",
+    autor: "J.R.R. Tolkien",
+    ano: 1937,
+    classificacao: "Fantasia",
+    paginas: 310,
+    lido: false,
+    avaliacao: 4.8
+};
+
+const livroB: Livro = {
+    titulo: "Bleach Vol. 1",
+    autor: "Tite Kubo",
+    ano: 2001,
+    classificacao: "Manga",
+    paginas: 192,
+    lido: true,
+    avaliacao: 4.5
+};
+
+// 2. Adicionar os livros e remover um livro existente
+adicionarLivro(biblioteca, livroA);
+adicionarLivro(biblioteca, livroB);
+
+// Remove 1 livro (por exemplo, o primeiro da lista, índice 0)
+removerLivro(biblioteca, 0);
+
+// Exibir novamente para validar
 exibirBiblioteca(biblioteca);
