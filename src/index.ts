@@ -30,6 +30,7 @@ console.table(biblioteca);
 // importações para execução das funções
 import { exibirBiblioteca } from './consulta-exibição.js';
 import { adicionarLivro, removerLivro } from './cadastro-remoção.js';
+import { buscarPorTitulo, listarPorAutor } from './consulta-exibição.js';
 
 // Executa as funções na ordem do exemplo
 exibirBiblioteca(biblioteca);
@@ -64,3 +65,9 @@ removerLivro(biblioteca, 0);
 
 // Exibir novamente para validar
 exibirBiblioteca(biblioteca);
+
+// busca por título (exemplo: "Code")
+buscarPorTitulo(biblioteca, "Code");
+
+// listar por autor (exemplo: "Kentaro Miura")
+listarPorAutor(biblioteca, "Kentaro Miura");
