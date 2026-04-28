@@ -33,6 +33,7 @@ import { adicionarLivro, removerLivro } from './cadastro-remoção.js';
 import { buscarPorTitulo, listarPorAutor } from './consulta-exibição.js';
 import { marcarComoLido, listarLidos, listarPendentes } from './consulta-exibição.js';
 import { exibirRelatorioEstatisticas } from './estatística.js';
+import { exibirPorDecada } from './classificação.js';
 
 // Executa as funções na ordem do exemplo
 exibirBiblioteca(biblioteca);
@@ -94,3 +95,6 @@ listarPendentes(biblioteca);
 
 // Exibir relatório de estatísticas
 exibirRelatorioEstatisticas(biblioteca);
+
+// Exibir classificação por década
+exibirPorDecada(biblioteca);
