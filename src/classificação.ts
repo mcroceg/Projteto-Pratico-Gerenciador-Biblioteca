@@ -1,1 +1,1 @@
-import { biblioteca, type Livro } from './index.js';
+import { type Livro } from './index.js';

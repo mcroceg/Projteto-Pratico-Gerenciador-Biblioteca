@@ -1,21 +1,17 @@
 import { biblioteca, type Livro } from './index.js';
 
-export function listarLivros(biblioteca: Livro[]): void {
-    console.log("Consulta e Exibição dos Livros:");
+export function exibirBiblioteca(biblioteca: Livro[]): void {
+    console.log("\n=== MINHA BIBLIOTECA ===\n");
+
     biblioteca.forEach((livro, index) => {
-        console.log(`Livro ${index + 1}:`);
-        console.log(`Título: ${livro.titulo}`);
-        console.log(`Autor: ${livro.autor}`);
-        console.log(`Ano: ${livro.ano}`);
-        console.log(`Páginas: ${livro.paginas}`); 
-        console.log(`Lido: ${livro.lido ? "Sim" : "Não"}`);
+        // Lógica de status: Se lido, mostra a nota. Se não, mostra PENDENTE.
+        const status = livro.lido 
+            ? `LIDO (${livro.avaliacao}/5)` 
+            : "PENDENTE";
 
-        if (livro.lido) {
-
-            console.log(`Avaliação: ${livro.avaliacao}/5`);
-
-        }
-            else {console.log("avaliação 0/5 - Livro não lido")};
-            
-        console.log('-----------------------------');
-    });}
+        // Formatação: 1. "Título" (Ano) - Autor - Paginas pag - Status
+        console.log(
+            `${index + 1}. "${livro.titulo}" (${livro.ano}) - ${livro.autor} - ${livro.paginas} pag - ${status}`
+        );
+    });
+}
